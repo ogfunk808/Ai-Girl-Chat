@@ -1,0 +1,24 @@
+{
+  "name": "ai-girl-chat",
+  "version": "1.0.0",
+  "description": "AI Companion Chat - Real Talk & Real Replies with Vercel Web Analytics",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node -e \"console.log('Build complete - static site ready')\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ogfunk808/Ai-Girl-Chat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ogfunk808/Ai-Girl-Chat/issues"
+  },
+  "homepage": "https://github.com/ogfunk808/Ai-Girl-Chat#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
