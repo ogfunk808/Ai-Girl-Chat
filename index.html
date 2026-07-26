@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Companion Chat - Real Talk & Real Replies</title>
+  <meta name="description" content="Experience realistic, natural, and expressive conversations with stylish AI companions.">
+  <link rel="stylesheet" href="styles.css">
+  <!-- RemixIcons for elegant icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- APP CONTAINER -->
+  <div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-group">
+          <div class="logo-icon"><i class="ri-heart-3-fill"></i></div>
+          <div class="logo-text">
+            <h1>AI Girl Chat</h1>
+            <span>Real Talk & Studio</span>
+          </div>
+        </div>
+        <button class="icon-btn mobile-toggle-btn" id="closeSidebarBtn">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+
+      <!-- Companions List -->
+      <div class="companions-section">
+        <div class="section-title">Select Companion</div>
+
+        <!-- Aria -->
+        <div class="companion-card active" data-companion="aria">
+          <div class="avatar-wrapper">
+            <img src="assets/aria.jpg" alt="Aria">
+            <span class="status-indicator"></span>
+          </div>
+          <div class="companion-info">
+            <div class="companion-name-row">
+              <span class="companion-name">Aria</span>
+              <span class="companion-badge">Artist</span>
+            </div>
+            <p class="companion-desc">Witty, creative & bold artist</p>
+          </div>
+        </div>
+
+        <!-- Elena -->
+        <div class="companion-card" data-companion="elena">
+          <div class="avatar-wrapper">
+            <img src="assets/elena.jpg" alt="Elena">
+            <span class="status-indicator"></span>
+          </div>
+          <div class="companion-info">
+            <div class="companion-name-row">
+              <span class="companion-name">Elena</span>
+              <span class="companion-badge">Intellectual</span>
+            </div>
+            <p class="companion-desc">Smart, tech-savvy & deep talker</p>
+          </div>
+        </div>
+
+        <!-- Maya -->
+        <div class="companion-card" data-companion="maya">
+          <div class="avatar-wrapper">
+            <img src="assets/maya.jpg" alt="Maya">
+            <span class="status-indicator"></span>
+          </div>
+          <div class="companion-info">
+            <div class="companion-name-row">
+              <span class="companion-name">Maya</span>
+              <span class="companion-badge">Empathetic</span>
+            </div>
+            <p class="companion-desc">Warm listener & cozy vibe</p>
+          </div>
+        </div>
+
+        <!-- Kira -->
+        <div class="companion-card" data-companion="kira">
+          <div class="avatar-wrapper">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Kira">
+            <span class="status-indicator"></span>
+          </div>
+          <div class="companion-info">
+            <div class="companion-name-row">
+              <span class="companion-name">Kira</span>
+              <span class="companion-badge">Gamer</span>
+            </div>
+            <p class="companion-desc">Energetic, anime & game lover</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- User Profile Sidebar Footer -->
+      <div class="sidebar-user">
+        <div class="user-profile-info">
+          <div class="user-avatar-circle" id="sidebarUserAvatar">U</div>
+          <div class="user-details">
+            <h4 id="sidebarUserName">Guest User</h4>
+            <span id="sidebarUserStatus">Registered Member</span>
+          </div>
+        </div>
+        <button class="icon-btn" id="openSettingsBtn" title="Settings">
+          <i class="ri-settings-3-line"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CHAT SECTION -->
+    <main class="chat-main">
+
+      <!-- Header -->
+      <header class="chat-header">
+        <div class="header-active-girl">
+          <button class="icon-btn mobile-toggle-btn" id="openSidebarBtn">
+            <i class="ri-menu-line"></i>
+          </button>
+          <img src="assets/aria.jpg" alt="Active Girl" class="header-avatar" id="headerAvatar">
+          <div class="header-meta">
+            <h2 id="headerName">Aria</h2>
+            <div class="header-status">
+              <span class="header-status-dot"></span>
+              <span id="headerStatusText">Online & Ready to Chat</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="icon-btn" id="clearChatBtn" title="Clear Chat History">
+            <i class="ri-delete-bin-6-line"></i>
+          </button>
+          <button class="icon-btn" id="openTermsBtn" title="Terms & Conditions">
+            <i class="ri-file-text-line"></i>
+          </button>
+          <button class="icon-btn" id="userProfileBtn" title="Edit Profile">
+            <i class="ri-user-3-line"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Quick Prompt Chips -->
+      <div class="quick-prompts-bar">
+        <button class="chip-btn" data-prompt="Hey! Tell me about what you love doing most? ✨">✨ Passion Talk</button>
+        <button class="chip-btn" data-prompt="I had a busy day today. How was yours? 🌸">☕ How was your day?</button>
+        <button class="chip-btn" data-prompt="Can you send me a photo of your current creative aesthetic? 📸">📸 Send a photo</button>
+        <button class="chip-btn" data-prompt="Give me a piece of inspiring advice for today! 💡">💡 Daily Advice</button>
+        <button class="chip-btn" data-prompt="What's your favorite music or movie vibe right now? 🎵">🎵 Music Vibe</button>
+      </div>
+
+      <!-- Messages Thread -->
+      <div class="messages-container" id="messagesContainer">
+        <!-- Messages rendered dynamically via script.js -->
+      </div>
+
+      <!-- Input Area -->
+      <div class="chat-input-area">
+        <div class="input-box-wrapper">
+          <button class="icon-btn" id="emojiBtn" title="Insert Emoji">
+            <i class="ri-emotion-happy-line"></i>
+          </button>
+          <textarea class="chat-input" id="chatInput" rows="1" placeholder="Type your message to Aria..."></textarea>
+          <button class="send-btn" id="sendBtn" title="Send Message">
+            <i class="ri-send-plane-2-fill"></i>
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- REGISTRATION MODAL OVERLAY -->
+  <div class="modal-overlay" id="registerModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Join AI Girl Chat Studio</h3>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+        Register your profile to unlock real-time natural conversations, persona customizations, and voice speech playback.
+      </p>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <label class="form-label">Your Name / Nickname</label>
+          <input type="text" class="form-input" id="regName" placeholder="e.g. Alex" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" id="regEmail" placeholder="alex@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Choose Favorite Companion</label>
+          <select class="form-select" id="regCompanion">
+            <option value="aria">Aria (Witty & Creative Artist)</option>
+            <option value="elena">Elena (Smart & Intellectual)</option>
+            <option value="maya">Maya (Warm & Empathetic)</option>
+            <option value="kira">Kira (Energetic Gamer)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="regAgeConfirm" required>
+            <span>I confirm I am 18 years of age or older.</span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="regTermsConfirm" required>
+            <span>I agree to the <span class="terms-link" id="regTermsLink">Terms & Conditions</span> and Privacy Guidelines.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary">Register & Start Chatting</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- TERMS & CONDITIONS MODAL -->
+  <div class="modal-overlay" id="termsModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Terms & Conditions</h3>
+        <button class="icon-btn" id="closeTermsBtn"><i class="ri-close-line"></i></button>
+      </div>
+      <div class="terms-scroll-box">
+        <h4>1. Acceptance of Terms</h4>
+        <p>By registering and using the AI Girl Chat application, you agree to comply with and be bound by these terms. This service is intended strictly for users aged 18 and older.</p>
+
+        <h4>2. AI Character Entertainment Disclaimer</h4>
+        <p>All companions (Aria, Elena, Maya, Kira) are artificial intelligence personas designed for interactive entertainment and friendly conversation. Responses generated are produced algorithmically.</p>
+
+        <h4>3. User Conduct & Content Guidelines</h4>
+        <p>Users must maintain standard community guidelines. Harassment, illegal activity promotion, or abuse are strictly prohibited.</p>
+
+        <h4>4. Privacy & Data Handling</h4>
+        <p>Your session preferences and conversation logs are preserved locally on your web browser via secure LocalStorage. We do not sell or track your private communication history.</p>
+
+        <h4>5. Real Speech & Audio Features</h4>
+        <p>Text-to-speech audio rendering utilizes native browser Web Speech API for voice playback. Audio synthesis options can be customized in Settings.</p>
+      </div>
+
+      <button class="btn-primary" id="acceptTermsBtn">Understood & Accept</button>
+    </div>
+  </div>
+
+  <!-- SETTINGS MODAL -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Application Settings</h3>
+        <button class="icon-btn" id="closeSettingsBtn"><i class="ri-close-line"></i></button>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="settingSpeechToggle" checked>
+          <span>Enable Automatic Text-to-Speech Voice</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="settingSoundFxToggle" checked>
+          <span>Enable UI Sound Effects</span>
+        </label>
+      </div>
+
+      <div class="form-group" style="margin-top: 20px;">
+        <label class="form-label">Optional AI API Key (OpenAI / Custom REST)</label>
+        <input type="password" class="form-input" id="settingApiKey" placeholder="sk-... (Leave empty for smart built-in AI)">
+        <span style="font-size: 0.75rem; color: var(--text-subtle); margin-top: 4px; display: block;">
+          If left blank, the high-performance local natural conversation engine is active.
+        </span>
+      </div>
+
+      <button class="btn-primary" id="saveSettingsBtn">Save Preferences</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
